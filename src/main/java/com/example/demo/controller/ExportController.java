@@ -61,7 +61,11 @@ public class ExportController {
     public void facturesDUnClient(@PathVariable("id") Long clientId, HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=\"factures client " + clientId + ".xlsx\"");
-        // TODO
+        // Tu récupères l'id du client
+        ClientDTO client = clientService.findById(clientId);
+        // Récupère toutes les factures liés à un client
+        List<FactureDTO> factures = factureService.findAllFactures(); 
+        exportXLSXService.exportFactures(response.getOutputStream(), client, factures); 
     }
 
 
