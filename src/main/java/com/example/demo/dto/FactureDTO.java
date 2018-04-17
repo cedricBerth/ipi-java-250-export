@@ -11,7 +11,7 @@ public class FactureDTO {
     private Long id;
 
     private ClientDTO client;
-
+    
     private List<LigneFactureDTO> ligneFactures = new ArrayList<>();
 
     public Long getId() {

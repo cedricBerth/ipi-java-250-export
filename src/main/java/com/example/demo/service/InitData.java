@@ -18,17 +18,29 @@ public class InitData {
     private EntityManager em;
 
     public void insertTestData() {
-        Client client1 = newClient("PETRI;LLO", "Alexandre");
+        Client client1 = newClient("Berthezene", "Cédric");
         em.persist(client1);
 
         Client client2 = newClient("Dupont", "Jérome");
         em.persist(client2);
+        
+        Client client3 = newClient("Leclair", "Luc"); 
+        em.persist(client3);
+        
+        Client client4 = newClient("Deloin", "Alain"); 
+        em.persist(client4);
 
         Article article1 = newArticle("Carte mère ASROCK 2345", 79.90);
         em.persist(article1);
 
         Article article2 = newArticle("Clé USB", 9.90);
         em.persist(article2);
+        
+        Article article3 = newArticle("Ventilateur", 150.99);
+        em.persist(article3);
+        
+        Article article4 = newArticle("Souris", 25.00);
+        em.persist(article4);
 
         {
             Facture facture = newFacture(client1);
@@ -40,6 +52,26 @@ public class InitData {
             em.persist(facture);
             em.persist(newLigneFacture(article1, facture, 1));
             em.persist(newLigneFacture(article2, facture, 5));
+        }
+        
+        {
+            Facture facture = newFacture(client2);
+            em.persist(facture);
+            em.persist(newLigneFacture(article1, facture, 1));
+            em.persist(newLigneFacture(article3, facture, 8));
+        }
+        
+        {
+            Facture facture = newFacture(client2);
+            em.persist(facture);
+            em.persist(newLigneFacture(article4, facture, 3));
+        }
+        
+        {
+            Facture facture = newFacture(client4);
+            em.persist(facture);
+            em.persist(newLigneFacture(article3, facture, 3));
+            em.persist(newLigneFacture(article4, facture, 10));
         }
     }
 

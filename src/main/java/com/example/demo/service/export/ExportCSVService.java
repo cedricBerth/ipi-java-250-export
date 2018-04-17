@@ -21,4 +21,12 @@ public class ExportCSVService {
         }
 
     }
+    
+    private String replace(String value) {
+    	value = value.replace("\"",  "\"\""); 
+    	if (value.contains(";")) {
+    		value = "\"" + value + "\""; 
+    	}
+    	return value; 
+    }
 }

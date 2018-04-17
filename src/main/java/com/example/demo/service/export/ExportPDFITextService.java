@@ -56,7 +56,7 @@ public class ExportPDFITextService {
         	pdfTable.addCell(ligneFacture.getDesignation());
         	pdfTable.addCell(ligneFacture.getQuantite().toString());
         	pdfTable.addCell(ligneFacture.getPrixUnitaire().toString());
-            total = ligneFacture.getPrixUnitaire() * ligneFacture.getQuantite(); 
+            total += ligneFacture.getPrixUnitaire() * ligneFacture.getQuantite(); 
         }
        
        // Ligne du total 
