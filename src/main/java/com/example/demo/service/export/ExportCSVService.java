@@ -11,12 +11,13 @@ import java.util.List;
 public class ExportCSVService {
 
     public void export(Writer printWriter, List<ClientDTO> clients) throws IOException {
+    	
         printWriter.write("Nom;");
         printWriter.write("Prenom;");
         for (ClientDTO client : clients) {
-            printWriter.write(client.getNom());
+            printWriter.write(replace(client.getNom()));
             printWriter.write(";");
-            printWriter.write(client.getPrenom());
+            printWriter.write(replace(client.getPrenom()));
             printWriter.write("\n");
         }
 
