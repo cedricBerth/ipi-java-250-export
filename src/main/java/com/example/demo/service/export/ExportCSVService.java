@@ -9,6 +9,9 @@ import java.util.List;
 
 @Service
 public class ExportCSVService {
+	
+	// TODO 
+	// Améliorer le CSV pour insérer les données à n'importe quel endroit
 
     public void export(Writer printWriter, List<ClientDTO> clients) throws IOException {
     	
@@ -20,7 +23,6 @@ public class ExportCSVService {
             printWriter.write(replace(client.getPrenom()));
             printWriter.write("\n");
         }
-
     }
     
     private String replace(String value) {

@@ -30,4 +30,10 @@ public class FactureService {
                         new IllegalArgumentException("Facture inconnu " + id)
                 );
     }
+    
+    // Méthode récupérant les factures par client
+    public List<FactureDTO> findFacturesByClient(Long clientId){
+    	return factureRepository.findByClientId(clientId).stream().map(factureMapper::map).collect(toList()); 
+    }
+
 }
